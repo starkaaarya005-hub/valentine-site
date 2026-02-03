@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise!</title>
+    <style>
+        body {
+            background-color: #fce4ec;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        h1 { color: #d81b60; font-size: 24px; text-align: center; padding: 20px; }
+        .btn-container { position: relative; width: 100%; height: 200px; display: flex; justify-content: center; align-items: center; }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        #yesBtn { background-color: #4caf50; color: white; margin-right: 20px; z-index: 10; }
+        #noBtn { background-color: #f44336; color: white; position: absolute; }
+    </style>
+</head>
+<body>
+
+    <h1>Will you be my Valentine? 💖</h1>
+
+    <div class="btn-container">
+        <button id="yesBtn" onclick="celebrate()">YES</button>
+        <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">NO</button>
+    </div>
+
+    <script>
+        function moveButton() {
+            // This calculates a random position within the screen for the button to "run away"
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            const noBtn = document.getElementById('noBtn');
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+
+        function celebrate() {
+            document.body.innerHTML = `
+                <h1 style="color: #d81b60;">YAY!!! <br> Best decision ever! 🥰</h1>
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJsa3R4bm96ZzRyc3R6ZzRyc3R6ZzRyc3R6ZzRyc3R6ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HlU9asHl801gJdm/giphy.gif" width="300">
+                <h2 style="color: #d81b60;">I love you! ❤️</h2>
+            `;
+        }
+    </script>
+</body>
+</html>
